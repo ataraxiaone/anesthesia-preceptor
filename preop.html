@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Preop Assistant</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      max-width: 600px;
+      margin: 40px auto;
+      padding: 1rem;
+    }
+    textarea, button {
+      width: 100%;
+      font-size: 1rem;
+      margin-top: 1rem;
+    }
+    .response {
+      margin-top: 1.5rem;
+      background: #f1f1f1;
+      padding: 1rem;
+      border-radius: 6px;
+      white-space: pre-wrap;
+    }
+  </style>
+</head>
+<body>
+  <h2>Ask a Preoperative Question</h2>
+  <textarea id="query" rows="4" placeholder="e.g. Should I stop SGLT2 inhibitors before surgery?"></textarea>
+  <button onclick="submitQuery()">Submit</button>
+
+  <div class="response" id="responseArea">Awaiting input...</div>
+
+  <script>
+    async function submitQuery() {
+      const query = document.getElementById("query").value;
+      const responseDiv = document.getElementById("responseArea");
+      responseDiv.textContent = "Thinking...";
+
+      try {
+        const res = await fetch("https://anesthesia-preceptor.christopher-cataldi.workers.dev", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({ query })
+        });
+
+        const data = await res.json();
+        responseDiv.textContent = data.answer || "No answer returned.";
+      } catch (err) {
+        console.error(err);
+        responseDiv.textContent = "Error. Try again later.";
+      }
+    }
+  </script>
+</body>
+</html>
