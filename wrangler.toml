@@ -1,0 +1,12 @@
+name = "anesthesia-preceptor"
+main = "src/index.ts"
+compatibility_date = "2024-04-29"
+
+[vars]
+AUTORAG_NAME = "periop-core-rag"
+ACCOUNT_ID = "a36d2faab4e16e1920bf3d68e83d784d"
+
+# ✅ Enable logs persistently
+logpush = true
+logpush_sampling_rate = 100
+logpush_include_invocation_logs = true
