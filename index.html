@@ -120,6 +120,17 @@
       background-color: #f9f9f9;
     }
 
+    .feedback-sticky {
+  position: sticky;
+  bottom: 0;
+  background-color: #f9fafb;
+  text-align: center;
+  padding: 1rem;
+  margin-top: 1rem;
+  border-top: 1px solid #ddd;
+  z-index: 10;
+}
+
   </style>
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 </head>
@@ -256,12 +267,12 @@
 </script>
 
 <hr />
-<div style="text-align: center; margin-top: 2rem;">
-  <p><strong>Help shape the future of this assistant — share your feedback!</strong></p>
+<div class="feedback-sticky">
   <button onclick="window.open('https://forms.gle/aTFiqxfswpcMJexf8', '_blank')">
     💬 Share Feedback
   </button>
 </div>
+
 
 
   </div>
