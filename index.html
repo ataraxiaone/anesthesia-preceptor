@@ -20,7 +20,7 @@
     .chat-container {
       display: flex;
       flex-direction: column;
-      height: 60vh;
+      flex-grow: 1;
       border: 1px solid #e5e7eb;
       border-radius: 8px;
       overflow: hidden;
@@ -124,6 +124,8 @@
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 </head>
 <body>
+  <div style="display: flex; flex-direction: column; min-height: 100vh;">
+
   <h1>NAPS Preop Assistant</h1>
   <p>Ask questions about preoperative anesthesia evaluation and get evidence-based answers.</p>
     
@@ -262,6 +264,6 @@
 </div>
 
 
-
+  </div>
 </body>
 </html>
